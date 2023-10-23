@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c66777i3d1ucu"]
+
+[ext_resource type="PackedScene" uid="uid://behck6egnlwp4" path="res://models/Objects/Flashlight.glb" id="1_wp2sf"]
+
+[node name="Flashlight" instance=ExtResource("1_wp2sf")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)

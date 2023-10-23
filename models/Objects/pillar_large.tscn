@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://iksy215onqvl"]
+
+[ext_resource type="PackedScene" uid="uid://b2clpncbi2bm5" path="res://assets/Models/GLTF format/pillarLarge.glb" id="1_d325p"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_yqx5c"]
+points = PackedVector3Array(-0.09, 0.849963, 0, -0.0840094, 0.789926, -0.084, -0.0840094, 0, -0.084, -0.0840094, 0, 0.084, -0.0840094, 0.789926, 0.084, -0.0500039, 0.91, 0, -0.025002, 0.91, -0.0433156, -0.045, 0.849963, -0.0779483, 0.0839918, 0.789926, -0.084, 0.0839918, 0, -0.084, 0.0839918, 0, 0.084, 0.0839918, 0.789926, 0.084, -0.045, 0.849963, 0.0779319, -0.025002, 0.91, 0.0432991, 0.0249843, 0.91, -0.0433156, 0.045, 0.849963, -0.0779483, 0.0499863, 0.91, 0, 0.09, 0.849963, 0, 0.0249843, 0.91, 0.0432991, 0.045, 0.849963, 0.0779319)
+
+[node name="pillarLarge" instance=ExtResource("1_d325p")]
+
+[node name="pillarLarge2" parent="." index="0"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_yqx5c")

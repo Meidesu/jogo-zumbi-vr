@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpv207iuwirj2"]
+
+[ext_resource type="PackedScene" uid="uid://bwdmy60xatyo8" path="res://assets/Models/GLTF format/pillarObelisk.glb" id="1_jmimx"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_755cd"]
+points = PackedVector3Array(0, 0, 0, 0.2062, 0, 0, 0, 0, 0.2062, 0, 0.226192, 0, 0.2062, 0, 0.2062, 0.2062, 0.226192, 0, 0, 0.226192, 0.2062, 0.0549207, 0.975593, 0.0549207, 0.2062, 0.226192, 0.2062, 0.151259, 0.975593, 0.0549207, 0.0549207, 0.975593, 0.151259, 0.1031, 1.0456, 0.1031, 0.151259, 0.975593, 0.151259)
+
+[node name="pillarObelisk" instance=ExtResource("1_jmimx")]
+
+[node name="pillarObelisk2" parent="." index="0"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_755cd")

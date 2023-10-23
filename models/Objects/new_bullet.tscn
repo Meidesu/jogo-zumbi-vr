@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://itpw1cjqwdyn"]
+
+[ext_resource type="Script" path="res://models/Objects/new_bullet.gd" id="1_xopcl"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hs3wi"]
+radius = 0.1
+height = 1.317
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_okwh8"]
+albedo_color = Color(0, 1, 0, 1)
+emission_enabled = true
+emission = Color(0, 1, 0, 1)
+emission_energy_multiplier = 5.0
+
+[node name="Bullet" type="Node3D"]
+script = ExtResource("1_xopcl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0761354, 0, 0, 0, -3.32799e-09, -0.0761354, 0, 0.0761354, -3.32799e-09, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_hs3wi")
+surface_material_override/0 = SubResource("StandardMaterial3D_okwh8")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -0.6)

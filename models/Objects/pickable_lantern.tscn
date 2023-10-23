@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpg4jalkudpgn"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_mbext"]
+[ext_resource type="PackedScene" uid="uid://c66777i3d1ucu" path="res://models/Objects/flashlight.tscn" id="2_5eapq"]
+
+[node name="PickableObject" instance=ExtResource("1_mbext")]
+
+[node name="Flashlight" parent="." index="1" instance=ExtResource("2_5eapq")]

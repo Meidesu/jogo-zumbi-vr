@@ -1,0 +1,16 @@
+[gd_resource type="Environment" load_steps=2 format=3 uid="uid://dehqrgbbdb32"]
+
+[ext_resource type="Sky" uid="uid://xuumo0avs2a8" path="res://scenes/Noite.tres" id="1_1qg1m"]
+
+[resource]
+background_mode = 2
+sky = ExtResource("1_1qg1m")
+ambient_light_color = Color(5.89602e-07, 0.194595, 0.292872, 1)
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.0352941, 0.105882, 0.235294, 1)
+fog_light_energy = 0.44
+fog_density = 0.0175
+fog_aerial_perspective = 0.856
+fog_sky_affect = 0.11

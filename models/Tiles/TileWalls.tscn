@@ -1,0 +1,65 @@
+[gd_scene load_steps=21 format=3 uid="uid://bmqibpec5ndi"]
+
+[ext_resource type="PackedScene" uid="uid://cpi77h46rqtvi" path="res://models/Objects/road.tscn" id="1_lpd4s"]
+[ext_resource type="PackedScene" uid="uid://chaxthoaoxes" path="res://models/Walls/border_pillar.tscn" id="1_yj46m"]
+[ext_resource type="PackedScene" uid="uid://bmeuixgbyy77s" path="res://models/Walls/brick_wall.tscn" id="2_srlyr"]
+[ext_resource type="PackedScene" uid="uid://bjq1d8t11v34l" path="res://models/Walls/brick_wall_curve.tscn" id="3_tfvi7"]
+[ext_resource type="PackedScene" uid="uid://bnf31bbjg53oj" path="res://models/Walls/brick_wall_curve_small.tscn" id="4_5bece"]
+[ext_resource type="PackedScene" uid="uid://cqnkihag43414" path="res://models/Walls/brick_wall_end.tscn" id="5_1bd1j"]
+[ext_resource type="PackedScene" uid="uid://do5o1prsi3p5u" path="res://models/Walls/column_large.tscn" id="6_r61n3"]
+[ext_resource type="PackedScene" uid="uid://c5yvd7p0qk2jy" path="res://models/Walls/cross_column.tscn" id="7_ihixh"]
+[ext_resource type="PackedScene" uid="uid://dg13c8xcb6g8y" path="res://models/Walls/iron_fence.tscn" id="8_5e371"]
+[ext_resource type="PackedScene" uid="uid://bi3w8ackwomq5" path="res://models/Walls/iron_fence_bar.tscn" id="9_tovud"]
+[ext_resource type="PackedScene" uid="uid://usxfqga2hn2y" path="res://models/Walls/iron_fence_border.tscn" id="10_hkad2"]
+[ext_resource type="PackedScene" uid="uid://bfdbo751abj66" path="res://models/Walls/iron_fence_border_column.tscn" id="11_7yhgx"]
+[ext_resource type="PackedScene" uid="uid://birxic6jod6y5" path="res://models/Walls/iron_fence_border_curve.tscn" id="12_fmuqt"]
+[ext_resource type="PackedScene" uid="uid://dt2824qc2xm8k" path="res://models/Walls/iron_fence_border_gate.tscn" id="13_wk2pk"]
+[ext_resource type="PackedScene" uid="uid://bq7og4daedvl0" path="res://models/Walls/iron_fence_curve.tscn" id="14_q0gfs"]
+[ext_resource type="PackedScene" uid="uid://bh1glbulopq64" path="res://models/Walls/iron_fence_damaged.tscn" id="15_mq5oh"]
+[ext_resource type="PackedScene" uid="uid://cm048jg8w0uj5" path="res://models/Walls/stone_wall.tscn" id="16_qsriy"]
+[ext_resource type="PackedScene" uid="uid://bjsel11ndnhyk" path="res://models/Walls/stone_wall_column.tscn" id="17_l6ar4"]
+[ext_resource type="PackedScene" uid="uid://b1ykg644bcvy1" path="res://models/Walls/stone_wall_curve.tscn" id="18_tq1ck"]
+[ext_resource type="PackedScene" uid="uid://0nftfugy07ao" path="res://models/Walls/stone_wall_damaged.tscn" id="19_lvn02"]
+
+[node name="TileWalls" type="Node3D"]
+
+[node name="road" parent="." instance=ExtResource("1_lpd4s")]
+
+[node name="brickWall" parent="." instance=ExtResource("2_srlyr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="borderPillar" parent="." instance=ExtResource("1_yj46m")]
+
+[node name="brickWallCurve" parent="." instance=ExtResource("3_tfvi7")]
+
+[node name="brickWallCurveSmall" parent="." instance=ExtResource("4_5bece")]
+
+[node name="brickWallEnd" parent="." instance=ExtResource("5_1bd1j")]
+
+[node name="columnLarge" parent="." instance=ExtResource("6_r61n3")]
+
+[node name="crossColumn" parent="." instance=ExtResource("7_ihixh")]
+
+[node name="ironFence" parent="." instance=ExtResource("8_5e371")]
+
+[node name="ironFenceBar" parent="." instance=ExtResource("9_tovud")]
+
+[node name="ironFenceBorder" parent="." instance=ExtResource("10_hkad2")]
+
+[node name="ironFenceBorderColumn" parent="." instance=ExtResource("11_7yhgx")]
+
+[node name="ironFenceBorderCurve" parent="." instance=ExtResource("12_fmuqt")]
+
+[node name="ironFenceBorderGate" parent="." instance=ExtResource("13_wk2pk")]
+
+[node name="ironFenceCurve" parent="." instance=ExtResource("14_q0gfs")]
+
+[node name="ironFenceDamaged" parent="." instance=ExtResource("15_mq5oh")]
+
+[node name="stoneWall" parent="." instance=ExtResource("16_qsriy")]
+
+[node name="stoneWallColumn" parent="." instance=ExtResource("17_l6ar4")]
+
+[node name="stoneWallCurve" parent="." instance=ExtResource("18_tq1ck")]
+
+[node name="stoneWallDamaged" parent="." instance=ExtResource("19_lvn02")]

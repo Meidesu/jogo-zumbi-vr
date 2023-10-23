@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=3 uid="uid://bhshb5waqnqqs"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_escpb"]
+[ext_resource type="Script" path="res://models/Objects/pickable_pistol.gd" id="2_7aup7"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_buhp1"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="3_lyw3i"]
+[ext_resource type="PackedScene" uid="uid://1f833psbn1sp" path="res://models/Objects/bullet.tscn" id="3_tjmad"]
+[ext_resource type="ArrayMesh" uid="uid://dkxvi5olng7xf" path="res://models/Objects/pickable_pistol.tres" id="4_3xgax"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/highlight/highlight_visible.gd" id="7_tq3md"]
+[ext_resource type="ArrayMesh" uid="uid://c23lno4rx1p53" path="res://models/Objects/pickable_pistol_highlight.tres" id="8_anibn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o7t1j"]
+
+[node name="PickablePistol" instance=ExtResource("1_escpb")]
+script = ExtResource("2_7aup7")
+bullet = ExtResource("3_tjmad")
+bullet_speed = 10.0
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0495153, 0.0110114, 0)
+shape = SubResource("BoxShape3D_o7t1j")
+
+[node name="Pistol" type="Node3D" parent="." index="1"]
+transform = Transform3D(0.09, 0, 0, 0, 0.09, 0, 0, 0, 0.09, 0, 0, 0)
+
+[node name="Pistol_5" type="MeshInstance3D" parent="Pistol" index="0"]
+transform = Transform3D(101.922, 0, 0, 0, -4.45515e-06, 101.922, 0, -101.922, -4.45515e-06, 0, 0, 0)
+mesh = ExtResource("4_3xgax")
+skeleton = NodePath("")
+
+[node name="GrabPointHandLeft" parent="." index="2" instance=ExtResource("2_buhp1")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0903289, 0.0371741, 0.0129731)
+
+[node name="GrabPointHandRight" parent="." index="3" instance=ExtResource("3_lyw3i")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0977446, 0.0408632, -0.0129341)
+
+[node name="Cooldown" type="Timer" parent="." index="4"]
+wait_time = 0.3
+one_shot = true
+
+[node name="SpawnPoint" type="Marker3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.134573, 0.0509759, 0)
+
+[node name="XRToolsHighlightVisible" type="Node3D" parent="." index="6"]
+script = ExtResource("7_tq3md")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XRToolsHighlightVisible" index="0"]
+transform = Transform3D(9.21278, 0, 0, 0, -4.02703e-07, 9.21278, 0, -9.21278, -4.02703e-07, 0, 0, 0)
+mesh = ExtResource("8_anibn")
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://cn48manuc54ud"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_0dnbs"]
+[ext_resource type="Script" path="res://models/Objects/new_pickable_pistol.gd" id="2_847v8"]
+[ext_resource type="PackedScene" uid="uid://itpw1cjqwdyn" path="res://models/Objects/new_bullet.tscn" id="3_c6142"]
+[ext_resource type="ArrayMesh" uid="uid://dkxvi5olng7xf" path="res://models/Objects/pickable_pistol.tres" id="4_77xvg"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="5_0q2rv"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="6_csqdo"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/highlight/highlight_visible.gd" id="7_0cwqd"]
+[ext_resource type="ArrayMesh" uid="uid://c23lno4rx1p53" path="res://models/Objects/pickable_pistol_highlight.tres" id="8_tm8jk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o7t1j"]
+size = Vector3(0.0300095, 0.107887, 0.168308)
+
+[node name="NewPickablePistol" instance=ExtResource("1_0dnbs")]
+script = ExtResource("2_847v8")
+bullet = ExtResource("3_c6142")
+bullet_speed = 10.0
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000394993, 0.0110114, -0.0486871)
+shape = SubResource("BoxShape3D_o7t1j")
+
+[node name="Pistol" type="Node3D" parent="." index="1"]
+transform = Transform3D(-3.93403e-09, 0, 0.09, 0, 0.09, 0, -0.09, 0, -3.93403e-09, 0, 0, 0)
+
+[node name="Pistol_5" type="MeshInstance3D" parent="Pistol" index="0"]
+transform = Transform3D(101.922, 0, 0, 0, -4.45515e-06, 101.922, 0, -101.922, -4.45515e-06, 0, 0, 0)
+mesh = ExtResource("4_77xvg")
+skeleton = NodePath("")
+
+[node name="GrabPointHandLeft" parent="." index="2" instance=ExtResource("5_0q2rv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0187563, 0.0371741, -0.0993672)
+visible = true
+
+[node name="GrabPointHandRight" parent="." index="3" instance=ExtResource("6_csqdo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0128729, 0.0408632, -0.102408)
+visible = true
+
+[node name="Cooldown" type="Timer" parent="." index="4"]
+wait_time = 0.3
+one_shot = true
+
+[node name="XRToolsHighlightVisible" type="Node3D" parent="." index="5"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+script = ExtResource("7_0cwqd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XRToolsHighlightVisible" index="0"]
+transform = Transform3D(9.21278, 0, 0, 0, -4.02703e-07, 9.21278, 0, -9.21278, -4.02703e-07, 0, 0, 0)
+mesh = ExtResource("8_tm8jk")
+
+[node name="RayCast3D" type="RayCast3D" parent="." index="6"]
+transform = Transform3D(-2.26906e-08, -0.519101, 0, 0.519101, -2.26906e-08, 0, 0, 0, 0.365698, 0, 0.0500479, -0.143604)
+target_position = Vector3(0, 0, -1)
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

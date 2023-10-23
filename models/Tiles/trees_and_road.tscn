@@ -1,0 +1,37 @@
+[gd_scene load_steps=12 format=3 uid="uid://bh3ka6bdhfyhy"]
+
+[ext_resource type="PackedScene" uid="uid://dha1jcyb1m21v" path="res://models/Objects/bench.tscn" id="1_rqihx"]
+[ext_resource type="PackedScene" uid="uid://ber62vys4jold" path="res://models/Objects/bench_damaged.tscn" id="2_j3ivv"]
+[ext_resource type="PackedScene" uid="uid://65w2tjje0dj8" path="res://models/Objects/crypt.tscn" id="3_5qel7"]
+[ext_resource type="PackedScene" uid="uid://ddvm718ltp2ix" path="res://models/Objects/lightpost_all.tscn" id="4_cqdmd"]
+[ext_resource type="PackedScene" uid="uid://duj63cn4wjqje" path="res://models/Objects/lightpost_double.tscn" id="5_dtdrm"]
+[ext_resource type="PackedScene" uid="uid://cde6m1ago3u6u" path="res://models/Objects/lightpost_single.tscn" id="6_etmis"]
+[ext_resource type="PackedScene" uid="uid://5028afeqx40j" path="res://models/Objects/pine.tscn" id="7_ig6ot"]
+[ext_resource type="PackedScene" uid="uid://ccq8l7y006caw" path="res://models/Objects/pine_crooked.tscn" id="8_yu816"]
+[ext_resource type="PackedScene" uid="uid://cpi77h46rqtvi" path="res://models/Objects/road.tscn" id="9_k0nnj"]
+[ext_resource type="PackedScene" uid="uid://g2dmes0qvs6k" path="res://models/Objects/trunk.tscn" id="10_qgn5a"]
+[ext_resource type="PackedScene" uid="uid://d1j41ggfonxai" path="res://models/Objects/trunk_long.tscn" id="11_mflkg"]
+
+[node name="TreesAndRouds" type="Node3D"]
+
+[node name="bench" parent="." instance=ExtResource("1_rqihx")]
+
+[node name="benchDamaged" parent="." instance=ExtResource("2_j3ivv")]
+
+[node name="crypt" parent="." instance=ExtResource("3_5qel7")]
+
+[node name="lightpostAll" parent="." instance=ExtResource("4_cqdmd")]
+
+[node name="lightpostDouble" parent="." instance=ExtResource("5_dtdrm")]
+
+[node name="lightpostSingle" parent="." instance=ExtResource("6_etmis")]
+
+[node name="pine" parent="." instance=ExtResource("7_ig6ot")]
+
+[node name="pineCrooked" parent="." instance=ExtResource("8_yu816")]
+
+[node name="road" parent="." instance=ExtResource("9_k0nnj")]
+
+[node name="trunk" parent="." instance=ExtResource("10_qgn5a")]
+
+[node name="trunkLong" parent="." instance=ExtResource("11_mflkg")]

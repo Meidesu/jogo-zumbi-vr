@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://5kb6587x22vk"]
+
+[ext_resource type="PackedScene" uid="uid://blnarrixpc22f" path="res://assets/Models/GLTF format/candleMultiple.glb" id="1_lwv0w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4qsa2"]
+albedo_color = Color(1, 1, 0, 1)
+emission_enabled = true
+emission = Color(1, 0.984314, 0, 1)
+emission_energy_multiplier = 16.0
+
+[node name="candleMultiple" instance=ExtResource("1_lwv0w")]
+
+[node name="candleMultiple2" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_4qsa2")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.340426, 0)
+light_color = Color(1, 1, 0.509804, 1)
+omni_range = 1.11334
