@@ -25,7 +25,7 @@ shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_color = Color(1, 1, 0, 1)
 grow = true
-grow_amount = 0.02
+grow_amount = 0.001
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_dkfeu"]
 _surfaces = [{

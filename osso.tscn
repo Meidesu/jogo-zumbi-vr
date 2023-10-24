@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://cby7owh28d8h0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5j0ji"]
+radius = 0.00051886
+height = 0.0051886
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1ydfp"]
+radius = 0.31197
+height = 0.953241
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_227xt"]
+radius = 0.00100193
+height = 0.0100193
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pp4xp"]
+radius = 0.0331319
+height = 0.0941082
+
+[node name="osso" type="Node3D"]
+
+[node name="SpineBone" type="PhysicalBone3D" parent="."]
+transform = Transform3D(0.959158, -0.266006, 0.0989943, -0.0532988, -0.511533, -0.858122, 0.278739, 0.81743, -0.504662, -0.000203443, 0.0487366, 0.00248314)
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.39007e-08, 6.71975e-06, 0.00260701)
+body_offset = Transform3D(1.00026, -6.72042e-06, 7.59959e-06, -1.16229e-05, -0.0001311, -1.00043, -2.15173e-05, 1.00031, -3.19779e-05, -6.36792e-08, 0.00260813, -6.63847e-06)
+bone_name = "Spine1"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpineBone"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_5j0ji")
+
+[node name="Body" type="Area3D" parent="SpineBone"]
+transform = Transform3D(-0.0354391, -0.00319003, 0.00308647, -0.000545178, -0.0215223, -0.028498, 0.00440425, -0.0283183, 0.0213052, 8.49031e-05, 0.0214524, 0.0430759)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpineBone/Body"]
+transform = Transform3D(1, -3.72529e-09, 8.9407e-08, -7.45058e-09, 1, 2.23517e-08, 8.9407e-08, -1.49012e-08, 1, -0.112718, 1.14258, -0.306801)
+shape = SubResource("CapsuleShape3D_1ydfp")
+
+[node name="HeadBone" type="PhysicalBone3D" parent="."]
+transform = Transform3D(0.967429, -0.244241, 0.0746614, -0.032368, -0.407342, -0.913406, 0.253285, 0.880772, -0.401846, -0.00232175, 0.0609509, 0.0119292)
+joint_type = 1
+joint_offset = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.33932e-06, 9.44256e-05, 0.0052419)
+body_offset = Transform3D(1.00056, -1.49012e-05, 8.06153e-06, -4.86523e-06, 4.80413e-05, -1.00068, -2.98023e-08, 1.00067, -5.31077e-05, -9.3854e-06, 0.00524547, -9.42107e-05)
+bone_name = "Head"
+joint_constraints/bias = 0.3
+joint_constraints/damping = 1.0
+joint_constraints/impulse_clamp = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HeadBone"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_227xt")
+
+[node name="Head" type="Area3D" parent="HeadBone"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HeadBone/Head"]
+transform = Transform3D(0.151422, -3.72529e-09, 0, 5.58794e-09, 0.151422, 1.49012e-08, -1.11759e-08, -3.72529e-09, 0.151422, 0.00011977, -1.26157e-05, 1.61305e-05)
+shape = SubResource("CapsuleShape3D_pp4xp")

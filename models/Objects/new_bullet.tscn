@@ -1,16 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://itpw1cjqwdyn"]
+[gd_scene load_steps=5 format=3 uid="uid://itpw1cjqwdyn"]
 
 [ext_resource type="Script" path="res://models/Objects/new_bullet.gd" id="1_xopcl"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_hs3wi"]
 radius = 0.1
-height = 1.317
+height = 1.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_okwh8"]
 albedo_color = Color(0, 1, 0, 1)
 emission_enabled = true
 emission = Color(0, 1, 0, 1)
 emission_energy_multiplier = 5.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vadug"]
+radius = 0.1
+height = 1.36998
 
 [node name="Bullet" type="Node3D"]
 script = ExtResource("1_xopcl")
@@ -22,3 +26,14 @@ surface_material_override/0 = SubResource("StandardMaterial3D_okwh8")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, -0.6)
+
+[node name="Area3D" type="Area3D" parent="." groups=["Bullet"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.0820412, 0, 0, 0, -3.58613e-09, 0.0820412, 0, -0.0820412, -3.58613e-09, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_vadug")
+
+[node name="LifeTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="LifeTimer" to="." method="_on_life_timer_timeout"]

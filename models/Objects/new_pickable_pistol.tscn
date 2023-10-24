@@ -31,11 +31,9 @@ skeleton = NodePath("")
 
 [node name="GrabPointHandLeft" parent="." index="2" instance=ExtResource("5_0q2rv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0187563, 0.0371741, -0.0993672)
-visible = true
 
 [node name="GrabPointHandRight" parent="." index="3" instance=ExtResource("6_csqdo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0128729, 0.0408632, -0.102408)
-visible = true
 
 [node name="Cooldown" type="Timer" parent="." index="4"]
 wait_time = 0.3
