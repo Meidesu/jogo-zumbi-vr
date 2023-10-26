@@ -18,7 +18,7 @@ bullet = ExtResource("3_c6142")
 bullet_speed = 10.0
 
 [node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000394993, 0.0110114, -0.0486871)
+transform = Transform3D(1.12661, 0, 0, 0, 1.12661, 0, 0, 0, 1.12661, 0.000394993, 0.0110114, -0.0486871)
 shape = SubResource("BoxShape3D_o7t1j")
 
 [node name="Pistol" type="Node3D" parent="." index="1"]

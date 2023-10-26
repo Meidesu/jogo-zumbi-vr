@@ -19,5 +19,6 @@ func _ready():
 		$SpawnTimer.start()
 
 func _on_spawn_timer_timeout():
-	spawnEnemy(spawnPosition)
+	if get_child_count() <= 10:
+		spawnEnemy(spawnPosition)
 	$SpawnTimer.start()

@@ -97,3 +97,8 @@ func takeDamage(amount):
 func _on_damage_area_area_entered(area):
 	if area.is_in_group("Bullet"):
 		takeDamage(bodyDamage)
+
+
+func _on_damage_area_body_entered(body):
+	if body is RigidBody3D and (body.velocity.x >= 2 or body.velocity.z >= 2):
+		takeDamage(10);

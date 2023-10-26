@@ -1,7 +1,7 @@
 extends Node3D
 class_name Bullet
 
-const SPEED = 50.0;
+const SPEED = 60.0;
 
 @onready var mesh = $MeshInstance3D;
 @onready var ray = $RayCast3D;

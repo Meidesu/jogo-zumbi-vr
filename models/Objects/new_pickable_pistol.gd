@@ -7,18 +7,28 @@ var can_fire: bool = true;
 
 @onready var gun_barrel = $RayCast3D;
 
+@onready var REST_POSITION = global_position;
+
 var shootTimer = 0;
 var shootTimeout = 3;
+
+var canDisappearTimer = 0;
 
 
 
 func _process(delta):
 	shootTimeout = clamp(shootTimeout, 0, 10)
+	canDisappearTimer = clamp(canDisappearTimer, 0, 10)
 	shootTimer += 1;
+
 	if shootTimer >= shootTimeout:
 		$OmniLight3D.visible = false;
 		
-		
+	if global_position.y <= 0.25:
+		canDisappearTimer += 1 
+		if canDisappearTimer >= 10:
+			global_position = REST_POSITION
+			canDisappearTimer = 0;
 
 func action():
 	super.action();
