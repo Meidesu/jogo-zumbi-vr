@@ -36,7 +36,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0187563, 0.0371741, -0.0993
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0128729, 0.0408632, -0.102408)
 
 [node name="Cooldown" type="Timer" parent="." index="4"]
-wait_time = 0.3
+wait_time = 0.15
 one_shot = true
 
 [node name="XRToolsHighlightVisible" type="Node3D" parent="." index="5"]
@@ -50,5 +50,12 @@ mesh = ExtResource("8_tm8jk")
 [node name="RayCast3D" type="RayCast3D" parent="." index="6"]
 transform = Transform3D(-2.26906e-08, -0.519101, 0, 0.519101, -2.26906e-08, 0, 0, 0, 0.365698, 0, 0.0500479, -0.143604)
 target_position = Vector3(0, 0, -1)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0505269, -0.136075)
+visible = false
+light_color = Color(1, 1, 0.513726, 1)
+light_energy = 0.268
+light_size = 0.029
 
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

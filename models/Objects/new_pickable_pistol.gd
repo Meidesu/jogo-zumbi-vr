@@ -7,20 +7,28 @@ var can_fire: bool = true;
 
 @onready var gun_barrel = $RayCast3D;
 
+var shootTimer = 0;
+var shootTimeout = 3;
 
+
+
+func _process(delta):
+	shootTimeout = clamp(shootTimeout, 0, 10)
+	shootTimer += 1;
+	if shootTimer >= shootTimeout:
+		$OmniLight3D.visible = false;
+		
+		
 
 func action():
 	super.action();
 	
 	if can_fire:
+		$OmniLight3D.visible = true
+		shootTimer = 0;
 		_spawn_bullet();
-		can_fire = false;
 		$Cooldown.start();
-		
-#	if can_fire:
-#		_spawn_bullet();
-#		can_fire = false;
-#		$Cooldown.start();
+		can_fire = false;
 		
 func _spawn_bullet():
 	if bullet:

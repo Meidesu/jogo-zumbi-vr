@@ -1,23 +1,32 @@
-[gd_scene load_steps=9 format=3 uid="uid://4ieqspk7bfy2"]
+[gd_scene load_steps=11 format=3 uid="uid://4ieqspk7bfy2"]
 
 [ext_resource type="Script" path="res://Coffin.gd" id="1_8ojy3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cqqtv"]
 resource_name = "stone"
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.6, 0.74902, 0.788235, 1)
 metallic = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hspl7"]
 resource_name = "wood"
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.858824, 0.494118, 0.305882, 1)
 metallic = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nbajl"]
 resource_name = "stoneDark"
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.44482, 0.600532, 0.641509, 1)
+albedo_color = Color(0.443137, 0.6, 0.643137, 1)
 metallic = 1.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_vm1ur"]
@@ -100,9 +109,151 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0, 1, 0, 0.5, 1, 0, 0, 0)
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.307786, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("crossWood2:mesh:surface_0/material:albedo_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.6, 0.74902, 0.788235, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("crossWood2:mesh:surface_1/material:albedo_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.858824, 0.494118, 0.305882, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("crossWood2:mesh:surface_2/material:albedo_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.443137, 0.6, 0.643137, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0kh65"]
+resource_name = "disappear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("crossWood2:mesh:surface_0/material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2.82843, 1),
+"update": 0,
+"values": [Color(0.6, 0.74902, 0.788235, 1), Color(0.6, 0.74902, 0.788235, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("crossWood2:mesh:surface_1/material:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2.82843, 1),
+"update": 0,
+"values": [Color(0.858824, 0.494118, 0.305882, 1), Color(0.858824, 0.494118, 0.305882, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("crossWood2:mesh:surface_2/material:albedo_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2.82843, 1),
+"update": 0,
+"values": [Color(0.443137, 0.6, 0.643137, 1), Color(0.443137, 0.6, 0.643137, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_jx0ga"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("crossWood2:mesh:surface_0/material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.6, 0.74902, 0.788235, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("crossWood2:mesh:surface_1/material:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.858824, 0.494118, 0.305882, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("crossWood2:mesh:surface_2/material:albedo_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.443137, 0.6, 0.643137, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eenl5"]
 _data = {
+"RESET": SubResource("Animation_jx0ga"),
+"disappear": SubResource("Animation_0kh65"),
 "fall": SubResource("Animation_asfb7")
 }
 
@@ -114,6 +265,7 @@ script = ExtResource("1_8ojy3")
 [node name="crossWood2" type="MeshInstance3D" parent="crossWood"]
 mesh = SubResource("ArrayMesh_31x03")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_cqqtv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../crossWood")
@@ -122,6 +274,6 @@ libraries = {
 }
 
 [node name="DisappearTimer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 10.0
 
 [connection signal="timeout" from="DisappearTimer" to="." method="_on_disappear_timer_timeout"]

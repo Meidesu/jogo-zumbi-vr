@@ -472,3 +472,5 @@ func _get_grab_point(_grabber : Node) -> XRToolsGrabPoint:
 func _set_ranged_grab_method(new_value: int) -> void:
 	ranged_grab_method = new_value
 	can_ranged_grab = new_value != RangedMethod.NONE
+
+

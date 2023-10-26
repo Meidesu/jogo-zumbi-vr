@@ -1,10 +1,11 @@
 extends CharacterBody3D
-
+class_name Zombie
 @export var coffin: PackedScene
 
 var player: XRToolsPlayerBody = null;
 
 var life = 100;
+var dead = false;
 
 var bodyDamage = 25;
 var headDamage = 50;
@@ -13,12 +14,6 @@ var headDamage = 50;
 const ATTACK_RANGE = 1.4;
 const SPEED = 8.0;
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity");
-
-
-
-
-
-
 
 var _isAttacking: bool = false;
 var _canAttack: bool = true;
@@ -40,8 +35,7 @@ func _ready():
 	
 
 func _process(delta):
-	var dead = life <= 0
-	
+	dead = life <= 0
 	velocity = Vector3.ZERO;
 	nav_agent.set_target_position(player.global_transform.origin);
 	var next_nav_point = nav_agent.get_next_path_position();
@@ -62,6 +56,10 @@ func _process(delta):
 	if dead:
 		spawn_grave();
 		queue_free();
+	
+	$Label3D.text = "VIDA: " + str(life)
+	$Label3D.look_at(player.position)
+	$Label3D.rotate_y(deg_to_rad(180))
 		
 	look_at(Vector3(player.global_position.x, global_position.y, player.global_position.z), Vector3.UP);
 	move_and_slide();
@@ -79,7 +77,8 @@ func _target_in_range():
 
 func spawn_grave():
 	var coffinInstance = coffin.instantiate()
-	self.add_child(coffinInstance)
+	coffinInstance.position = self.global_position
+	self.get_parent().add_child(coffinInstance)
 	
 
 func _on_animation_finished(anim_name):
@@ -92,16 +91,9 @@ func _on_cooldown_timeout():
 
 
 func takeDamage(amount):
-
 	life -= amount
 
 
-
-#func _on_damage_area_body_entered(body):
-#	if body is Bullet:
-#		takeDamage(bodyDamage)
-
-
 func _on_damage_area_area_entered(area):
-	if area.is_in_grup("Bullet"):
+	if area.is_in_group("Bullet"):
 		takeDamage(bodyDamage)

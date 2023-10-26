@@ -193,3 +193,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_x86g8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="crypt2/cryptSmallDoorwayAlternative"]
 shape = SubResource("ConvexPolygonShape3D_ty8fv")
+
+[node name="SpawnEnemyPos" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.278978, 3.88202)
