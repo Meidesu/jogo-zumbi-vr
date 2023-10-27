@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://65w2tjje0dj8"]
+[gd_scene load_steps=21 format=3 uid="uid://65w2tjje0dj8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_edkwd"]
 resource_name = "stone"
@@ -155,10 +155,71 @@ shadow_mesh = SubResource("ArrayMesh_kf6th")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x86g8"]
 albedo_color = Color(0.168627, 0.168627, 0.168627, 1)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ty8fv"]
-points = PackedVector3Array(0.35119, 0.897175, 0.0130598, -0.35754, 0.68604, -0.0773691, -0.290162, 0.0269274, -0.1, -0.3, 0.0115676, 0.0993917, 0.283813, 0.0269274, -0.1, -0.3, 0.894974, 0.0993917, 0.295432, 0.00878687, 0.1, 0.281595, 0.942375, -0.075, 0.295432, 0.897494, 0.1, -0.28593, 0.93907, -0.0744837, 0.305889, 0.36948, -0.10754, -0.312238, 0.36948, -0.10754, -0.297184, 0.95754, 0.0130598, 0.35119, 0.68604, -0.0773691, -0.35754, 0.897175, 0.0130598, 0.290835, 0.95754, 0.0130598, 0.340054, 0.883907, -0.075, -0.34398, 0.88102, -0.0744845, -0.35754, 0.68604, 0.0130598)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_c2672"]
+points = PackedVector3Array(-0.35, 0.699946, -0.0750196, -0.300049, 0, -0.1, -0.35, 0.699946, 0, -0.35, 0.874956, -0.0750196, -0.300049, 0, 0.1, -0.300049, 0.349927, -0.1, 0.29998, 0, -0.1, -0.35, 0.874956, 0, -0.275039, 0.95, -0.0750196, 0.29998, 0, 0.1, -0.300049, 0.899971, 0.1, 0.29998, 0.349927, -0.1, 0.349932, 0.699946, -0.0750196, -0.275039, 0.95, 0, 0.274971, 0.95, -0.0750196, 0.349932, 0.699946, 0, 0.29998, 0.899971, 0.1, 0.349932, 0.874956, -0.0750196, 0.274971, 0.95, 0, 0.349932, 0.874956, 0)
+
+[sub_resource type="Animation" id="Animation_5jbum"]
+resource_name = "open_door"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("crypt2/cryptDoor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 4.92458),
+"update": 0,
+"values": [Vector3(-0.0700188, 0.05476, 0.276019), Vector3(-0.07, 0.055, 0.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OmniLight3D:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.4]
+}
+
+[sub_resource type="Animation" id="Animation_1iqjv"]
+resource_name = "close_door"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("crypt2/cryptDoor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(4.92458, 1),
+"update": 0,
+"values": [Vector3(-0.07, 0.055, 0.2), Vector3(-0.0700188, 0.05476, 0.276019)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OmniLight3D:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.51),
+"transitions": PackedFloat32Array(0.659754, 1),
+"update": 0,
+"values": [0.4, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b8twg"]
+_data = {
+"close_door": SubResource("Animation_1iqjv"),
+"open_door": SubResource("Animation_5jbum")
+}
 
 [node name="crypt" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0281343, -0.0553519, 0.00235033)
 
 [node name="crypt2" type="MeshInstance3D" parent="."]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
@@ -169,30 +230,47 @@ surface_material_override/0 = SubResource("StandardMaterial3D_fgidu")
 [node name="StaticBody3D" type="StaticBody3D" parent="crypt2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="crypt2/StaticBody3D"]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_lkcpi")
 
 [node name="cryptDoor" type="StaticBody3D" parent="crypt2"]
-transform = Transform3D(-0.333333, 0, 5.0332e-08, 0, 0.333333, 0, -5.0332e-08, 0, -0.333333, -0.0700188, 0.05476, 0.409285)
+transform = Transform3D(-0.333333, 0, 5.03319e-08, 0, 0.333333, 0, -5.03319e-08, 0, -0.333333, -0.0700188, 0.05476, 0.276019)
 
 [node name="cryptDoor2" type="MeshInstance3D" parent="crypt2/cryptDoor"]
+transform = Transform3D(1, 0, 4.26326e-14, 0, 1, 0, -4.26326e-14, 0, 1, -1.04308e-07, 0, -0.518546)
 mesh = SubResource("ArrayMesh_6jgqk")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_ddpcb")
 surface_material_override/1 = SubResource("StandardMaterial3D_6l7vc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="crypt2/cryptDoor"]
+transform = Transform3D(1, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 1, -8.9407e-08, 0, -0.552568)
+visible = false
 shape = SubResource("ConvexPolygonShape3D_chrdp")
 
 [node name="cryptSmallDoorwayAlternative" type="StaticBody3D" parent="crypt2"]
 transform = Transform3D(-0.333333, 0, -5.0332e-08, 0, 0.333333, 0, 5.0332e-08, 0, -0.333333, 0.000389178, 0.0537747, 0.424412)
 
 [node name="cryptSmallDoorwayAlternative2" type="MeshInstance3D" parent="crypt2/cryptSmallDoorwayAlternative"]
+transform = Transform3D(1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_akqek")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_x86g8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="crypt2/cryptSmallDoorwayAlternative"]
-shape = SubResource("ConvexPolygonShape3D_ty8fv")
+visible = false
+shape = SubResource("ConvexPolygonShape3D_c2672")
 
 [node name="SpawnEnemyPos" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.278978, 3.88202)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b8twg")
+}
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23295, 2.73253)
+light_color = Color(0.278431, 0.937255, 0.709804, 1)
+light_energy = 0.0
+light_size = 0.1
