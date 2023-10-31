@@ -35,6 +35,7 @@ func action():
 	
 	if can_fire:
 		$OmniLight3D.visible = true
+		$Shoot.play();
 		shootTimer = 0;
 		_spawn_bullet();
 		$Cooldown.start();

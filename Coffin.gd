@@ -3,6 +3,9 @@ func _ready():
 	$AnimationPlayer.play("fall");
 	if $DisappearTimer.is_stopped(): $DisappearTimer.start()
 
+func play_fall_audio():
+	$Fall.play()
+
 func _on_disappear_timer_timeout():
 	$AnimationPlayer.play("disappear")
 

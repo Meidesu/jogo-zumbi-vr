@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cn48manuc54ud"]
+[gd_scene load_steps=11 format=3 uid="uid://cn48manuc54ud"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_0dnbs"]
 [ext_resource type="Script" path="res://models/Objects/new_pickable_pistol.gd" id="2_847v8"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="6_csqdo"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/highlight/highlight_visible.gd" id="7_0cwqd"]
 [ext_resource type="ArrayMesh" uid="uid://c23lno4rx1p53" path="res://models/Objects/pickable_pistol_highlight.tres" id="8_tm8jk"]
+[ext_resource type="AudioStream" uid="uid://5p7yqrm2kug2" path="res://assets/Audio/Pistol/Shoot.mp3" id="9_4fe3u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o7t1j"]
 size = Vector3(0.0300095, 0.107887, 0.168308)
@@ -57,5 +58,8 @@ visible = false
 light_color = Color(1, 1, 0.513726, 1)
 light_energy = 0.268
 light_size = 0.029
+
+[node name="Shoot" type="AudioStreamPlayer3D" parent="." index="8"]
+stream = ExtResource("9_4fe3u")
 
 [connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

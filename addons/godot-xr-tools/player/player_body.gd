@@ -580,7 +580,12 @@ func _apply_velocity_and_control(delta: float):
 	# Split the velocity into horizontal and vertical components
 	var horizontal_velocity := local_velocity.slide(up_gravity)
 	var vertical_velocity := local_velocity - horizontal_velocity
-
+	
+	if horizontal_velocity.length() > 0.4:
+		if !$Footstep.playing:
+			$Footstep.pitch_scale = randf_range(0.5, 1.0)
+			$Footstep.play()
+	
 	# If the player is on the ground then give them control
 	if _can_apply_ground_control():
 		# If ground control is being supplied then update the horizontal velocity
