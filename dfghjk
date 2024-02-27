@@ -1,0 +1,60 @@
+[33mcommit b6db54d00b38a35d2cd47f7bfb73e2b9c27db8d7[m[33m ([m[1;36mHEAD -> [m[1;32mfeatures/sounds[m[33m, [m[1;31morigin/features/sounds[m[33m, [m[1;31morigin/develop[m[33m)[m
+Merge: 5e3cb9c 7da6927
+Author: Antonio Meireles <antonio.mei.nt@gmail.com>
+Date:   Tue Oct 31 09:12:56 2023 -0300
+
+    Merge remote-tracking branch 'origin/develop' into features/sounds
+
+[33mcommit 5e3cb9cda3745e5bc0d8c0d13661edde5c9365aa[m
+Author: Antonio Meireles <antonio.mei.nt@gmail.com>
+Date:   Tue Oct 31 09:03:00 2023 -0300
+
+    added sound/part2
+
+[33mcommit 906c8176679ea07f30e8a719072f29af3f0126f9[m
+Author: Antonio Meireles <antonio.mei.nt@gmail.com>
+Date:   Sun Oct 29 22:57:47 2023 -0300
+
+    Sons de passos, tiro, queda e dano
+
+[33mcommit 7da692703000441cd6d2085080ca578146814697[m[33m ([m[1;31morigin/features/crypt_movement[m[33m)[m
+Author: ryofac <ryanfaustinocarvalho@gmail.com>
+Date:   Thu Oct 26 22:51:16 2023 -0300
+
+    Added crypt door movement
+
+[33mcommit 123217516a243fef95c20b52b23628c60c5af29c[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: Antonio Meireles <antonio.mei.nt@gmail.com>
+Date:   Thu Oct 26 20:58:17 2023 -0300
+
+    Otimização, colisão com o chão, resetar posição da arma
+
+[33mcommit 1ca5595fa248813ca7a749300bd25269185c38a6[m
+Author: Antonio Meireles <antonio.mei.nt@gmail.com>
+Date:   Wed Oct 25 21:08:10 2023 -0300
+
+    Instancia de inimigos e melhoria nas colisões
+
+[33mcommit 52b9e90f7b2a8a23a2b4c516a236efcb5b95d245[m
+Author: Antonio Meireles <antonio.mei.nt@gmail.com>
+Date:   Tue Oct 24 20:39:07 2023 -0300
+
+    Lanterna e zumbi com dano da bala
+
+[33mcommit 1b9a785f1a9b3b909b968ea6787e252cd07c7d0d[m
+Author: Antonio Meireles <antonio.mei.nt@gmail.com>
+Date:   Mon Oct 23 21:10:59 2023 -0300
+
+    Teste de gitignore
+
+[33mcommit b23fcfcd8dfddcc91e2a322b15ee9dce842bb678[m
+Author: Antonio Meireles <antonio.mei.nt@gmail.com>
+Date:   Mon Oct 23 21:06:15 2023 -0300
+
+    Teste
+
+[33mcommit 0de9622c1f477dbc9c9675961162b6bab1e38d4b[m
+Author: Antonio Meireles <antonio.mei.nt@gmail.com>
+Date:   Mon Oct 23 20:55:20 2023 -0300
+
+    Primeiro commit

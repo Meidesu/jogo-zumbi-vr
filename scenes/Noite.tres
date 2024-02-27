@@ -1,3 +1,12 @@
-[gd_resource type="Sky" format=3 uid="uid://xuumo0avs2a8"]
+[gd_resource type="Sky" load_steps=2 format=3 uid="uid://xuumo0avs2a8"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s7uva"]
+sky_top_color = Color(0.0156863, 0.0392157, 0.0784314, 1)
+sky_horizon_color = Color(0, 0.0117647, 0.141176, 1)
+sky_curve = 0.0247408
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0.0117647, 0.141176, 1)
+ground_curve = 0.485029
 
 [resource]
+sky_material = SubResource("ProceduralSkyMaterial_s7uva")
