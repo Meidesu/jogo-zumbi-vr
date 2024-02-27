@@ -11,7 +11,7 @@ enum ControllerSelectionMode {Hold, Toggle}
 @export var is_camera_height_limited: bool = true
 @export var min_camera_height: float = 0.5
 @export var max_camera_height: float = 2.0
-@export var xr_origin: NodePath
+@export var xr_origin: XROrigin3D;
 
 var origin: XROrigin3D
 var camera: XRCamera3D
@@ -50,7 +50,8 @@ func _ready():
 		
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
-	origin = get_node(xr_origin)
+#	origin = get_node(xr_origin)
+	origin = xr_origin
 
 	camera = origin.get_node("XRCamera3D")
 	

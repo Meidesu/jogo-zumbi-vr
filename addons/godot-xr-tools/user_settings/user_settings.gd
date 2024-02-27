@@ -198,7 +198,7 @@ func _on_webxr_vector2_changed(name: String, _vector: Vector2) -> void:
 			webxr_primary_changed.emit(webxr_auto_primary)
 
 ## Helper function to remap input vector with deadzone values
-func get_adjusted_vector2(p_controller, p_input_action):
+func get_adjusted_vector2(p_controller: XRController3D, p_input_action):
 	var vector = Vector2.ZERO
 	var original_vector = p_controller.get_vector2(p_input_action)
 

@@ -5,12 +5,12 @@
 [resource]
 background_mode = 2
 sky = ExtResource("1_1qg1m")
-ambient_light_color = Color(5.89602e-07, 0.194595, 0.292872, 1)
+ambient_light_color = Color(0, 0.196078, 0.294118, 1)
 tonemap_mode = 2
 glow_enabled = true
 fog_enabled = true
-fog_light_color = Color(0.0352941, 0.105882, 0.235294, 1)
-fog_light_energy = 0.44
-fog_density = 0.0175
-fog_aerial_perspective = 0.856
-fog_sky_affect = 0.11
+fog_light_color = Color(0.0705882, 0.160784, 0.333333, 1)
+fog_light_energy = 0.4
+fog_density = 0.0815
+fog_aerial_perspective = 0.732
+fog_sky_affect = 0.05
