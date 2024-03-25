@@ -105,6 +105,7 @@ func is_xr_class(name : String) -> bool:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	visible = true;
 	if !Engine.is_editor_hint():
 		origin_node = XRHelpers.get_xr_origin(self)
 		_update_mesh()
@@ -113,7 +114,7 @@ func _ready():
 		_update_auto_adjust()
 	else:
 		set_process(false)
-
+	
 # Called on process
 func _process(delta):
 	if Engine.is_editor_hint():

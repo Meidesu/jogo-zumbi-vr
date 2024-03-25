@@ -1,0 +1,136 @@
+[gd_scene load_steps=21 format=3 uid="uid://cul5snyujs68r"]
+
+[ext_resource type="Texture2D" uid="uid://ctmpb033pqisd" path="res://assets/grids/Dark/texture_14.png" id="1_bbl2c"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_k3vaw"]
+[ext_resource type="PackedScene" uid="uid://ds41k80f52kow" path="res://scenes/ui_2d.tscn" id="2_dipry"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="3_pttun"]
+[ext_resource type="PackedScene" uid="uid://cc6ngdqie8o8c" path="res://addons/godot-xr-tools/effects/vignette.tscn" id="4_8b5po"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="4_cb3p6"]
+[ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="5_ish35"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="6_8j2di"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="7_2psml"]
+[ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="8_hashu"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="9_fkkfv"]
+[ext_resource type="AudioStream" uid="uid://bfxr8fm2bwgkx" path="res://assets/Audio/Footsteps/gravel.ogg" id="10_iqbcn"]
+[ext_resource type="PackedScene" uid="uid://ctltchlf2j2r4" path="res://addons/xr-simulator/XRSimulator.tscn" id="11_aj81u"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t1xsf"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+sky_energy_multiplier = 0.0
+sky_cover_modulate = Color(0, 0, 0, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_xk0we"]
+sky_material = SubResource("ProceduralSkyMaterial_t1xsf")
+
+[sub_resource type="Environment" id="Environment_o7l4u"]
+background_energy_multiplier = 0.0
+sky = SubResource("Sky_xk0we")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpaym"]
+shading_mode = 0
+disable_ambient_light = true
+albedo_texture = ExtResource("1_bbl2c")
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jaj5c"]
+size = Vector2(200, 200)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bj07q"]
+data = PackedVector3Array(100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, 100, -100, 0, -100, 100, 0, -100)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yyext"]
+radius = 0.2
+height = 1.4
+
+[node name="MenuScreen" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+light_energy = 1.95
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_o7l4u")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+material_override = SubResource("StandardMaterial3D_hpaym")
+mesh = SubResource("PlaneMesh_jaj5c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("ConcavePolygonShape3D_bj07q")
+
+[node name="UI2d" parent="." instance=ExtResource("1_k3vaw")]
+transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 1.5, 0)
+screen_size = Vector2(1920, 1080)
+scene = ExtResource("2_dipry")
+viewport_size = Vector2(960, 540)
+unshaded = true
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+current = true
+
+[node name="Vignette" parent="XROrigin3D/XRCamera3D" instance=ExtResource("4_8b5po")]
+fade = -2.58
+
+[node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
+tracker = &"left_hand"
+pose = &"aim"
+
+[node name="MovementDirect" parent="XROrigin3D/LeftHand" instance=ExtResource("3_pttun")]
+strafe = true
+enabled = false
+
+[node name="FunctionPickup" parent="XROrigin3D/LeftHand" instance=ExtResource("4_cb3p6")]
+enabled = false
+grab_distance = 1.0
+
+[node name="FunctionPointer" parent="XROrigin3D/LeftHand" instance=ExtResource("6_8j2di")]
+show_laser = 2
+laser_length = 1
+
+[node name="LeftHand" parent="XROrigin3D/LeftHand" instance=ExtResource("5_ish35")]
+
+[node name="RightHand" type="XRController3D" parent="XROrigin3D"]
+tracker = &"right_hand"
+pose = &"aim"
+
+[node name="MovementTurn" parent="XROrigin3D/RightHand" instance=ExtResource("7_2psml")]
+turn_mode = 2
+
+[node name="FunctionPickup" parent="XROrigin3D/RightHand" instance=ExtResource("4_cb3p6")]
+enabled = false
+grab_distance = 1.0
+
+[node name="RightHand" parent="XROrigin3D/RightHand" instance=ExtResource("8_hashu")]
+
+[node name="FunctionPointer" parent="XROrigin3D/RightHand" instance=ExtResource("6_8j2di")]
+show_laser = 2
+laser_length = 1
+
+[node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("9_fkkfv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.02162)
+
+[node name="_CollisionShape3D_175353" type="CollisionShape3D" parent="XROrigin3D/PlayerBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("CapsuleShape3D_yyext")
+
+[node name="Footstep" type="AudioStreamPlayer3D" parent="XROrigin3D/PlayerBody"]
+stream = ExtResource("10_iqbcn")
+volume_db = -20.0
+max_distance = 5.0
+
+[node name="AudioListener3D" type="AudioListener3D" parent="XROrigin3D/PlayerBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25724, 0)
+current = true
+
+[node name="XRSimulator" parent="." node_paths=PackedStringArray("xr_origin") instance=ExtResource("11_aj81u")]
+xr_origin = NodePath("../XROrigin3D")
