@@ -30,7 +30,7 @@ var _isAttacked: bool = false;
 @onready var headArea = $RootNode/Head
 
 func _ready():
-	player = get_node(player_path);
+#	player = get_node(player_path);
 	animation_player.play("Walk");
 	print(player)
 	$Audio/BruhTimer.wait_time = randf_range(10.0, 50.0)
@@ -43,7 +43,7 @@ func _process(delta):
 	var next_nav_point = nav_agent.get_next_path_position();
 	var difference = (next_nav_point - global_transform.origin).normalized();
 	
-	if not _isAttacking and !_isAttacked:
+	if !_isAttacking and !_isAttacked:
 		velocity = difference * SPEED * delta;
 		
 	if not is_on_floor():

@@ -87,7 +87,6 @@ const NEAR_GROUND_DISTANCE := 1.0
 ## Option for specifying when ground control is allowed
 @export var ground_control : GroundControl = GroundControl.ON_GROUND
 
-
 ## Player 3D Velocity - modified by [XRToolsMovementProvider] nodes
 #var velocity : Vector3 = Vector3.ZERO
 
@@ -151,6 +150,7 @@ var _previous_ground_global : Vector3 = Vector3.ZERO
 # Player body Collision node
 var _collision_node : CollisionShape3D
 
+# Verifica se o player esta sobre ataque
 var is_under_attack: bool = false;
 
 ## XROrigin3D node
